@@ -9,14 +9,12 @@ int main()
     int n; cin >> n;
     map<string, int> mp;
     vector<string> save;
-
-
+    
     while(n--)
     {
         string s; cin >> s;
         save.push_back(s);
     } 
-
     reverse(save.begin(), save.end());
 
     for(string val : save)
@@ -27,6 +25,5 @@ int main()
             cout << *++val.rbegin() << *val.rbegin();
         }
     }
-
     return 0;
 }
