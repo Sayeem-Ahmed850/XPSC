@@ -10,41 +10,35 @@ using namespace std;
 void solve()
 {
     int n; cin >> n;
+    int m = n * (n - 1) / 2;
 
-    int sizeA = n * (n - 1) / 2;
+    vector<int> a, b(m);
+    for(int i = 0; i < m; i++) cin >> b[i];
+    sort(b.begin(), b.end());
 
-    vector<int> b(sizeA);
-    for(int i = 0; i < sizeA; i++) cin >> b[i];
-
-    vector<pi> v;
-    map<int, int> mp;
-    for(int i = 0;  i < sizeA; i++)
+    int j = 1, x = n - 1;
+    for(int i = 0; i < m; i++)
     {
-        mp[b[i]]++;
+        if(j == x)
+        {
+            a.push_back(b[i]);
+            j = 0;
+            x--;
+        }
+        j++;
     }
 
-    for(auto[x, y] : mp) v.push_back({y, x});
-    sort(v.begin(), v.end());
-
-    vector<int> a;
-    a.push_back(v.front().second + 2);
-
-    for(int i = 0; i < n - 1; i++)
-    {
-        if(i > v.size() - 1) a.push_back(v.rbegin()->second);
-        else a.push_back(v[i].second);
-    }
-    reverse(a.begin(), a.end());
     for(auto val : a) cout << val << " ";
-    cout << nl;
+    cout << 1000000000 << nl;
+    
 }
 
 int main()
 {
     FIO;
-
     int t; cin >> t;
     while(t--)
         solve();
+    
     return 0;
 }
