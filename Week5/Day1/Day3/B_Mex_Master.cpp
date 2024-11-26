@@ -10,8 +10,7 @@ void solve()
     for (int i = 0; i < n; i++) cin >> a[i];
 
     int z = 0, nz = 0;
-    for (auto val : a)
-    {
+    for (auto val : a){
         if (val == 0) z++;
         else nz++;
     }
@@ -20,11 +19,6 @@ void solve()
         cout << 0 << nl;
         return;
     }
-    // if (nz >= z - 1){
-    //     cout << 0 << nl;
-    //     return;
-    // }
-
     if(z - 1 <= nz){
         cout << 0 << nl;
         return;
